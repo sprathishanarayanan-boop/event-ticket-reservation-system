@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: eventpass-multi-tenant-system
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm run seed && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: JWT_SECRET
+        generateValue: true
+      - key: RESERVATION_HOLD_MINUTES
+        value: "10"
+      - key: CLEANUP_INTERVAL_SECONDS
+        value: "15"
