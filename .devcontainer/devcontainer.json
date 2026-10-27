@@ -1,0 +1,25 @@
+{
+  "name": "EventPass Codespace",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
+  "forwardPorts": [3000, 5173],
+  "portsAttributes": {
+    "5173": {
+      "label": "EventPass Frontend UI",
+      "onAutoForward": "openBrowser"
+    },
+    "3000": {
+      "label": "EventPass Express API",
+      "onAutoForward": "notify"
+    }
+  },
+  "postCreateCommand": "npm install && npm run seed",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "bradlc.vscode-tailwindcss"
+      ]
+    }
+  }
+}
